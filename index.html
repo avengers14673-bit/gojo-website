@@ -2,870 +2,650 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Satoru Gojo | The Strongest</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SATORU GOJO</title>
 
 <style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    background: #02040b;
-    color: white;
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#02040d;
+  color:white;
 }
 
-/* =========================
-   INTRO SCREEN
-========================= */
-
-#intro {
-    width: 100vw;
-    height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #164d91 0%,
-            #0b2148 35%,
-            #030817 70%,
-            #010208 100%
-        );
+button{
+  font:inherit;
 }
 
-/* Blue glowing orb */
+/* ================= INTRO ================= */
 
-.intro-glow {
-    position: absolute;
-
-    width: 280px;
-    height: 280px;
-
-    border-radius: 50%;
-
-    background: #168cff;
-
-    filter: blur(100px);
-
-    opacity: 0.35;
-
-    animation: glowPulse 3s infinite alternate;
+#intro{
+  position:fixed;
+  inset:0;
+  z-index:20;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 55%,#123c91 0%,#071538 22%,#02040d 58%,#000 100%);
 }
 
-@keyframes glowPulse {
-
-    from {
-        transform: scale(0.8);
-        opacity: 0.25;
-    }
-
-    to {
-        transform: scale(1.2);
-        opacity: 0.5;
-    }
-
+#intro::before{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  background:radial-gradient(circle,#51baff 0%,#1667ff 20%,transparent 68%);
+  filter:blur(25px);
+  opacity:.55;
+  animation:core 3s infinite alternate;
 }
 
-/* Rotating circles */
-
-.energy-circle {
-    position: absolute;
-
-    width: 600px;
-    height: 600px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(100,200,255,0.25);
-
-    box-shadow:
-        0 0 30px rgba(40,160,255,0.15),
-        inset 0 0 30px rgba(40,160,255,0.1);
-
-    animation: rotateCircle 15s linear infinite;
+@keyframes core{
+  from{transform:scale(.75);opacity:.35}
+  to{transform:scale(1.15);opacity:.7}
 }
 
-.energy-circle::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 50px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(100,200,255,0.2);
+.stars{
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(circle,#fff 1px,transparent 1px),
+    radial-gradient(circle,#55baff 1px,transparent 1px);
+  background-size:90px 90px,140px 140px;
+  opacity:.28;
+  animation:stars 12s linear infinite;
 }
 
-@keyframes rotateCircle {
-
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-
+@keyframes stars{
+  to{background-position:90px 90px,-140px 140px}
 }
 
-/* Intro content */
-
-.intro-content {
-    position: relative;
-    z-index: 5;
-
-    animation: introAppear 1.5s ease;
+.gojo-symbol{
+  position:relative;
+  width:210px;
+  height:270px;
+  margin-bottom:10px;
+  filter:drop-shadow(0 0 25px #159cff);
+  animation:float 3s ease-in-out infinite;
 }
 
-@keyframes introAppear {
-
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-        filter: blur(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-        filter: blur(0);
-    }
-
+@keyframes float{
+  50%{transform:translateY(-12px)}
 }
 
-.intro-content h1 {
+/* stylized Gojo */
 
-    font-size: clamp(42px, 11vw, 85px);
-
-    letter-spacing: 5px;
-
-    text-shadow:
-        0 0 10px #ffffff,
-        0 0 25px #168cff,
-        0 0 55px #168cff;
-
+.hair{
+  position:absolute;
+  top:8px;
+  left:35px;
+  width:140px;
+  height:115px;
+  background:#f4fbff;
+  clip-path:polygon(
+    50% 0%,63% 16%,76% 4%,79% 25%,95% 15%,89% 38%,
+    100% 39%,84% 57%,91% 77%,70% 66%,63% 100%,
+    48% 72%,38% 100%,31% 69%,8% 81%,19% 59%,0% 50%,
+    17% 35%,7% 19%,28% 27%,25% 7%,39% 18%
+  );
 }
 
-.intro-subtitle {
-
-    margin-top: 12px;
-
-    font-size: 18px;
-
-    letter-spacing: 7px;
-
-    color: #a9e5ff;
-
+.face{
+  position:absolute;
+  top:75px;
+  left:58px;
+  width:94px;
+  height:115px;
+  background:linear-gradient(120deg,#fff,#dbeaff);
+  border-radius:48% 48% 45% 45%;
+  box-shadow:inset -8px -10px 20px #a5c8ee;
 }
 
-/* Enter button */
-
-.enter-button {
-
-    margin-top: 45px;
-
-    padding: 16px 38px;
-
-    border-radius: 40px;
-
-    border: 2px solid #65d4ff;
-
-    background: rgba(0,120,255,0.12);
-
-    color: white;
-
-    font-size: 16px;
-
-    letter-spacing: 2px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 0 15px #168cff,
-        0 0 35px rgba(22,140,255,0.5);
-
-    transition: 0.3s;
+.blindfold{
+  position:absolute;
+  top:105px;
+  left:48px;
+  width:114px;
+  height:38px;
+  border-radius:20px;
+  background:linear-gradient(90deg,#060a16,#1d263b,#050914);
+  box-shadow:0 0 15px #168cff;
 }
 
-.enter-button:hover {
-
-    transform: scale(1.08);
-
-    background: rgba(22,140,255,0.5);
-
+.blindfold::after{
+  content:"";
+  position:absolute;
+  width:28px;
+  height:8px;
+  background:#5ac7ff;
+  border-radius:50%;
+  left:43px;
+  top:15px;
+  filter:blur(4px);
 }
 
-/* =========================
-   MAIN SCREEN
-========================= */
-
-#main {
-
-    display: none;
-
-    width: 100vw;
-    height: 100vh;
-
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 25% 35%,
-            #164f91 0%,
-            transparent 35%
-        ),
-
-        radial-gradient(
-            circle at 80% 65%,
-            #38146d 0%,
-            transparent 35%
-        ),
-
-        #030713;
+.collar{
+  position:absolute;
+  bottom:4px;
+  left:43px;
+  width:125px;
+  height:75px;
+  background:linear-gradient(135deg,#101827,#02050b);
+  clip-path:polygon(18% 0,82% 0,100% 100%,0 100%);
 }
 
-/* Main glow */
+/* title */
 
-.main-glow {
-
-    position: absolute;
-
-    width: 350px;
-    height: 350px;
-
-    border-radius: 50%;
-
-    background: #168cff;
-
-    filter: blur(110px);
-
-    opacity: 0.25;
-
-    animation: mainGlow 4s infinite alternate;
+.small-title{
+  position:relative;
+  letter-spacing:7px;
+  font-size:13px;
+  color:#78d4ff;
+  margin-top:3px;
 }
 
-@keyframes mainGlow {
-
-    from {
-        transform: scale(0.8);
-    }
-
-    to {
-        transform: scale(1.3);
-    }
-
+h1{
+  position:relative;
+  font-size:clamp(42px,12vw,76px);
+  letter-spacing:5px;
+  text-align:center;
+  text-shadow:
+    0 0 10px #fff,
+    0 0 25px #20a8ff,
+    0 0 50px #006eff;
 }
 
-/* Main card */
-
-.gojo-card {
-
-    position: relative;
-
-    z-index: 5;
-
-    width: min(90%, 500px);
-
-    padding: 35px 25px;
-
-    text-align: center;
-
-    border-radius: 28px;
-
-    border: 1px solid rgba(100,210,255,0.45);
-
-    background: rgba(5,15,35,0.75);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 0 30px rgba(20,150,255,0.25),
-        inset 0 0 30px rgba(100,200,255,0.04);
-
-    animation: cardAppear 1.2s ease;
+.subtitle{
+  position:relative;
+  color:#9ccfff;
+  letter-spacing:5px;
+  font-size:13px;
+  margin-top:5px;
 }
 
-@keyframes cardAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(40px) scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-
+.enter{
+  position:relative;
+  margin-top:32px;
+  width:205px;
+  height:58px;
+  border:1px solid #5dcaff;
+  border-radius:40px;
+  background:rgba(0,100,255,.12);
+  color:white;
+  letter-spacing:4px;
+  font-weight:bold;
+  box-shadow:
+    0 0 15px #008cff,
+    inset 0 0 20px rgba(0,160,255,.2);
+  cursor:pointer;
+  overflow:hidden;
 }
 
-.gojo-card h2 {
-
-    font-size: 42px;
-
-    letter-spacing: 3px;
-
-    text-shadow:
-        0 0 15px #168cff;
-
+.enter::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,#fff,transparent);
+  opacity:.25;
+  animation:sweep 2.5s infinite;
 }
 
-.role {
-
-    margin-top: 8px;
-
-    color: #69d4ff;
-
-    letter-spacing: 3px;
-
-    font-size: 14px;
-
+@keyframes sweep{
+  100%{left:100%}
 }
 
-.description {
-
-    margin-top: 22px;
-
-    color: #d8e9ff;
-
-    line-height: 1.6;
-
+.enter:active{
+  transform:scale(.94);
 }
 
-.abilities {
+/* ================= MAIN ================= */
 
-    margin-top: 25px;
-
-    display: grid;
-
-    gap: 10px;
+#main{
+  position:fixed;
+  inset:0;
+  z-index:5;
+  display:none;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 45%,#123c8d 0%,#06142e 25%,#02040b 65%);
 }
 
-.ability {
-
-    padding: 14px;
-
-    border-radius: 14px;
-
-    background: rgba(255,255,255,0.06);
-
-    border: 1px solid rgba(100,190,255,0.12);
-
-    transition: 0.3s;
+#main.show{
+  display:block;
+  animation:appear 1.2s ease;
 }
 
-.ability:hover {
-
-    transform: scale(1.03);
-
-    background: rgba(30,130,255,0.15);
-
+@keyframes appear{
+  from{opacity:0;transform:scale(1.08)}
+  to{opacity:1;transform:scale(1)}
 }
 
-/* Power button */
-
-.power-button {
-
-    margin-top: 30px;
-
-    padding: 15px 30px;
-
-    border-radius: 35px;
-
-    border: 2px solid #65d4ff;
-
-    background: rgba(0,120,255,0.15);
-
-    color: white;
-
-    font-size: 15px;
-
-    letter-spacing: 2px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 0 15px #168cff,
-        0 0 35px rgba(22,140,255,0.4);
-
-    transition: 0.3s;
+.energy{
+  position:absolute;
+  width:500px;
+  height:500px;
+  left:50%;
+  top:43%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,#fff 0%,#4bc5ff 4%,#1676ff 18%,transparent 65%);
+  filter:blur(3px);
+  opacity:.45;
+  animation:energy 4s linear infinite;
 }
 
-.power-button:hover {
-
-    transform: scale(1.06);
-
+@keyframes energy{
+  50%{transform:translate(-50%,-50%) scale(1.18) rotate(180deg)}
+  100%{transform:translate(-50%,-50%) scale(1) rotate(360deg)}
 }
 
-/* =========================
-   DOMAIN EXPANSION
-========================= */
-
-#domain {
-
-    display: none;
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 100;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #ffffff 0%,
-            #c8f3ff 7%,
-            #5cc9ff 18%,
-            #2467ff 38%,
-            #17104d 65%,
-            #020006 100%
-        );
-
-    animation: domainAppear 0.8s ease forwards;
+.ring{
+  position:absolute;
+  left:50%;
+  top:43%;
+  border:1px solid rgba(82,199,255,.55);
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  animation:ring 8s linear infinite;
 }
 
-/* Huge rotating rings */
+.r1{width:280px;height:280px}
+.r2{width:390px;height:390px;animation-duration:11s;animation-direction:reverse}
+.r3{width:520px;height:520px;animation-duration:15s}
+.r4{width:700px;height:700px;animation-duration:20s;opacity:.25}
 
-#domain::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 150vw;
-    height: 150vw;
-
-    border-radius: 50%;
-
-    border: 2px solid rgba(255,255,255,0.45);
-
-    box-shadow:
-        0 0 35px #5edcff,
-        inset 0 0 45px #168cff;
-
-    animation: domainRotate 10s linear infinite;
+@keyframes ring{
+  to{transform:translate(-50%,-50%) rotate(360deg)}
 }
 
-#domain::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 95vw;
-    height: 95vw;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(255,255,255,0.35);
-
-    box-shadow:
-        0 0 25px #ffffff;
-
-    animation:
-        domainRotateReverse 7s linear infinite;
-
+.main-content{
+  position:relative;
+  z-index:3;
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  text-align:center;
 }
 
-/* Domain text */
-
-.domain-content {
-
-    position: relative;
-
-    z-index: 10;
-
-    opacity: 0;
-
-    transform: scale(0.4);
-
-    animation:
-        domainTextReveal
-        1.5s
-        0.4s
-        cubic-bezier(.2,.8,.2,1)
-        forwards;
-
+.badge{
+  color:#6bd2ff;
+  letter-spacing:4px;
+  font-size:11px;
+  border:1px solid rgba(90,200,255,.4);
+  padding:7px 13px;
+  border-radius:30px;
+  background:rgba(0,80,180,.15);
 }
 
-.domain-subtitle {
-
-    font-size: 16px;
-
-    letter-spacing: 8px;
-
-    color: #e9fbff;
-
-    margin-bottom: 18px;
-
-    text-shadow:
-        0 0 15px #00baff;
-
+.main-gojo{
+  margin-top:8px;
+  transform:scale(.9);
 }
 
-.domain-title {
-
-    font-size: clamp(38px, 10vw, 85px);
-
-    font-weight: 900;
-
-    letter-spacing: 5px;
-
-    color: white;
-
-    text-shadow:
-
-        0 0 8px white,
-        0 0 20px #a5efff,
-        0 0 45px #168cff,
-        0 0 80px #0066ff;
-
-    animation:
-        titlePulse
-        2s
-        2s
-        infinite
-        alternate;
-
+.main-content h2{
+  font-size:clamp(35px,10vw,64px);
+  letter-spacing:4px;
+  text-shadow:0 0 25px #159cff;
 }
 
-/* Domain animations */
-
-@keyframes domainAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform: scale(1.5);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform: scale(1);
-
-    }
-
+.quote{
+  color:#b9dfff;
+  margin-top:6px;
+  font-size:13px;
+  letter-spacing:3px;
 }
 
-@keyframes domainTextReveal {
-
-    0% {
-
-        opacity: 0;
-
-        transform: scale(0.4) translateY(40px);
-
-        filter: blur(20px);
-
-    }
-
-    60% {
-
-        opacity: 1;
-
-        transform: scale(1.08) translateY(0);
-
-        filter: blur(0);
-
-    }
-
-    100% {
-
-        opacity: 1;
-
-        transform: scale(1);
-
-    }
-
+.power{
+  margin-top:25px;
+  width:min(320px,90vw);
+  padding:17px;
+  border:1px solid #42bfff;
+  border-radius:14px;
+  color:white;
+  background:linear-gradient(90deg,rgba(0,80,255,.18),rgba(0,180,255,.08));
+  box-shadow:0 0 25px rgba(0,140,255,.3);
+  cursor:pointer;
+  font-weight:bold;
+  letter-spacing:3px;
+  transition:.25s;
 }
 
-@keyframes titlePulse {
-
-    from {
-
-        transform: scale(1);
-
-        text-shadow:
-            0 0 8px white,
-            0 0 20px #8eeaff,
-            0 0 45px #168cff;
-
-    }
-
-    to {
-
-        transform: scale(1.05);
-
-        text-shadow:
-            0 0 15px white,
-            0 0 35px #8eeaff,
-            0 0 70px #168cff,
-            0 0 110px #0066ff;
-
-    }
-
+.power:active{
+  transform:scale(.94);
 }
 
-@keyframes domainRotate {
-
-    from {
-
-        transform: rotate(0deg) scale(1);
-
-    }
-
-    to {
-
-        transform: rotate(360deg) scale(1.12);
-
-    }
-
+.abilities{
+  display:flex;
+  gap:9px;
+  margin-top:18px;
+  width:min(370px,95vw);
 }
 
-@keyframes domainRotateReverse {
-
-    from {
-
-        transform: rotate(360deg) scale(1);
-
-    }
-
-    to {
-
-        transform: rotate(0deg) scale(1.1);
-
-    }
-
+.ability{
+  flex:1;
+  padding:12px 4px;
+  border:1px solid rgba(94,200,255,.3);
+  border-radius:12px;
+  background:rgba(0,50,120,.2);
+  color:#b9e6ff;
+  font-size:10px;
+  letter-spacing:1px;
+  cursor:pointer;
 }
 
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 500px) {
-
-    .energy-circle {
-
-        width: 430px;
-        height: 430px;
-
-    }
-
-    .gojo-card {
-
-        padding: 30px 20px;
-
-    }
-
-    .gojo-card h2 {
-
-        font-size: 34px;
-
-    }
-
-    .domain-subtitle {
-
-        font-size: 13px;
-
-        letter-spacing: 5px;
-
-    }
-
+.ability:active{
+  background:rgba(40,150,255,.35);
 }
 
+/* ================= DOMAIN ================= */
+
+#domain{
+  position:fixed;
+  inset:0;
+  z-index:50;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#000;
+}
+
+#domain.active{
+  display:flex;
+  animation:domainIn .7s ease;
+}
+
+@keyframes domainIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+.void{
+  position:absolute;
+  width:110vmax;
+  height:110vmax;
+  border-radius:50%;
+  background:
+    repeating-radial-gradient(
+      circle,
+      rgba(100,190,255,.9) 0px,
+      rgba(30,100,255,.45) 2px,
+      transparent 4px,
+      transparent 16px
+    );
+  animation:voidSpin 12s linear infinite;
+  opacity:.8;
+}
+
+@keyframes voidSpin{
+  to{transform:rotate(360deg) scale(1.1)}
+}
+
+.domain-ring{
+  position:absolute;
+  width:65vmin;
+  height:65vmin;
+  border:2px solid #8bdcff;
+  border-radius:50%;
+  box-shadow:
+    0 0 30px #198dff,
+    inset 0 0 40px #198dff;
+  animation:domainRing 2s ease-in-out infinite alternate;
+}
+
+@keyframes domainRing{
+  from{transform:scale(.7) rotate(0)}
+  to{transform:scale(1.1) rotate(180deg)}
+}
+
+.domain-text{
+  position:relative;
+  z-index:3;
+  text-align:center;
+  text-shadow:
+    0 0 10px #fff,
+    0 0 30px #36aaff,
+    0 0 70px #006eff;
+}
+
+.domain-text .small{
+  font-size:12px;
+  letter-spacing:8px;
+  color:#9edfff;
+  animation:fadeText 1s ease forwards;
+}
+
+.domain-text h3{
+  margin-top:12px;
+  font-size:clamp(43px,12vw,88px);
+  letter-spacing:5px;
+  line-height:.95;
+  animation:domainTitle 1.5s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes domainTitle{
+  from{
+    opacity:0;
+    transform:scale(2.5);
+    filter:blur(15px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+    filter:blur(0);
+  }
+}
+
+.domain-text p{
+  margin-top:18px;
+  color:#ccecff;
+  letter-spacing:4px;
+  font-size:11px;
+}
+
+.close{
+  position:absolute;
+  z-index:5;
+  bottom:35px;
+  left:50%;
+  transform:translateX(-50%);
+  border:1px solid #66ccff;
+  color:white;
+  background:rgba(0,50,130,.3);
+  padding:12px 24px;
+  border-radius:30px;
+  letter-spacing:3px;
+}
+
+/* flash */
+
+#flash{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  pointer-events:none;
+  background:white;
+  opacity:0;
+}
+
+.flash{
+  animation:flash .8s ease;
+}
+
+@keyframes flash{
+  0%{opacity:0}
+  15%{opacity:.9}
+  100%{opacity:0}
+}
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =================================
-     INTRO
-================================= -->
-
+<!-- INTRO -->
 <section id="intro">
+  <div class="stars"></div>
 
-    <div class="intro-glow"></div>
+  <div class="gojo-symbol">
+    <div class="hair"></div>
+    <div class="face"></div>
+    <div class="blindfold"></div>
+    <div class="collar"></div>
+  </div>
 
-    <div class="energy-circle"></div>
+  <div class="small-title">JUJUTSU SORCERER</div>
+  <h1>SATORU GOJO</h1>
+  <div class="subtitle">THE STRONGEST</div>
 
-    <div class="intro-content">
-
-        <h1>
-            SATORU GOJO
-        </h1>
-
-        <div class="intro-subtitle">
-            THE STRONGEST
-        </div>
-
-        <button
-            class="enter-button"
-            onclick="enterSite()">
-
-            👆 TAP TO ENTER
-
-        </button>
-
-    </div>
-
+  <button class="enter" onclick="enterSite()">
+    TAP TO ENTER
+  </button>
 </section>
 
 
-
-<!-- =================================
-     MAIN
-================================= -->
-
+<!-- MAIN -->
 <section id="main">
 
-    <div class="main-glow"></div>
+  <div class="energy"></div>
+  <div class="ring r1"></div>
+  <div class="ring r2"></div>
+  <div class="ring r3"></div>
+  <div class="ring r4"></div>
 
-    <div class="energy-circle"></div>
+  <div class="main-content">
 
-    <div class="gojo-card">
+    <div class="badge">SPECIAL GRADE SORCERER</div>
 
-        <h2>
-            SATORU GOJO
-        </h2>
-
-        <div class="role">
-            SPECIAL GRADE SORCERER
-        </div>
-
-        <p class="description">
-
-            Welcome to the world of
-            the strongest.
-
-        </p>
-
-
-        <div class="abilities">
-
-            <div class="ability">
-                ♾️ LIMITLESS
-            </div>
-
-            <div class="ability">
-                👁️ SIX EYES
-            </div>
-
-            <div class="ability">
-                🔵 BLUE • 🔴 RED • 🟣 HOLLOW PURPLE
-            </div>
-
-        </div>
-
-
-        <button
-            class="power-button"
-            onclick="showDomain()">
-
-            UNLEASH THE POWER ⚡
-
-        </button>
-
+    <div class="gojo-symbol main-gojo">
+      <div class="hair"></div>
+      <div class="face"></div>
+      <div class="blindfold"></div>
+      <div class="collar"></div>
     </div>
 
+    <h2>GOJO</h2>
+    <div class="quote">"THROUGHOUT HEAVEN AND EARTH..."</div>
+
+    <button class="power" onclick="openDomain()">
+      ⚡ UNLEASH THE POWER
+    </button>
+
+    <div class="abilities">
+      <button class="ability" onclick="ability('LIMITLESS')">
+        ∞<br>LIMITLESS
+      </button>
+
+      <button class="ability" onclick="ability('SIX EYES')">
+        👁<br>SIX EYES
+      </button>
+
+      <button class="ability" onclick="openDomain()">
+        ◉<br>DOMAIN
+      </button>
+    </div>
+
+  </div>
 </section>
 
 
-
-<!-- =================================
-     DOMAIN EXPANSION
-================================= -->
-
+<!-- DOMAIN -->
 <section id="domain">
 
-    <div class="domain-content">
+  <div class="void"></div>
+  <div class="domain-ring"></div>
 
-        <div class="domain-subtitle">
-            DOMAIN EXPANSION
-        </div>
+  <div class="domain-text">
+    <div class="small">SATORU GOJO</div>
+    <h3>UNLIMITED<br>VOID</h3>
+    <p>DOMAIN EXPANSION</p>
+  </div>
 
-        <div class="domain-title">
-            UNLIMITED VOID
-        </div>
-
-    </div>
+  <button class="close" onclick="closeDomain()">EXIT DOMAIN</button>
 
 </section>
 
+<div id="flash"></div>
 
 
 <script>
 
-/* =========================
-   ENTER WEBSITE
-========================= */
+function enterSite(){
 
-function enterSite() {
+  const flash=document.getElementById("flash");
+  flash.classList.add("flash");
 
-    document.getElementById("intro").style.display = "none";
+  setTimeout(()=>{
+    document.getElementById("intro").style.display="none";
+    document.getElementById("main").classList.add("show");
+  },450);
 
-    document.getElementById("main").style.display = "flex";
-
+  setTimeout(()=>{
+    flash.classList.remove("flash");
+  },900);
 }
 
 
-/* =========================
-   DOMAIN EXPANSION
-========================= */
+function openDomain(){
 
-function showDomain() {
+  const flash=document.getElementById("flash");
+  flash.classList.add("flash");
 
-    const domain =
-        document.getElementById("domain");
+  setTimeout(()=>{
+    document.getElementById("domain").classList.add("active");
+  },250);
 
-    domain.style.display = "flex";
+  setTimeout(()=>{
+    flash.classList.remove("flash");
+  },900);
+}
 
-    setTimeout(function() {
 
-        domain.style.display = "none";
+function closeDomain(){
+  document.getElementById("domain").classList.remove("active");
+}
 
-    }, 5500);
 
+function ability(name){
+
+  const main=document.getElementById("main");
+
+  if(name==="LIMITLESS"){
+    main.style.background=
+      "radial-gradient(circle at 50% 45%,#063e92,#02040d 65%)";
+  }
+
+  if(name==="SIX EYES"){
+    main.style.background=
+      "radial-gradient(circle at 50% 45%,#164aff,#02040d 65%)";
+  }
+
+  setTimeout(()=>{
+    main.style.background=
+      "radial-gradient(circle at 50% 45%,#123c8d 0%,#06142e 25%,#02040b 65%)";
+  },1500);
 }
 
 </script>
-
 
 </body>
 </html>
