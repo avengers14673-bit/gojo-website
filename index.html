@@ -2,647 +2,431 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>SATORU GOJO</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Anime Card</title>
 
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
-  width:100%;
-  height:100%;
+body{
+  min-height:100vh;
   overflow:hidden;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#02040d;
+  font-family:Arial,sans-serif;
+  background:#050510;
   color:white;
 }
 
-button{
-  font:inherit;
-}
-
-/* ================= INTRO ================= */
-
-#intro{
+/* ENTER SCREEN */
+#enterScreen{
   position:fixed;
   inset:0;
   z-index:20;
   display:flex;
-  flex-direction:column;
-  align-items:center;
   justify-content:center;
-  overflow:hidden;
+  align-items:center;
+  flex-direction:column;
   background:
-    radial-gradient(circle at 50% 55%,#123c91 0%,#071538 22%,#02040d 58%,#000 100%);
+    radial-gradient(circle at center,#25204f 0%,#0b0920 45%,#030308 100%);
 }
 
-#intro::before{
-  content:"";
-  position:absolute;
-  width:420px;
-  height:420px;
-  border-radius:50%;
-  background:radial-gradient(circle,#51baff 0%,#1667ff 20%,transparent 68%);
-  filter:blur(25px);
-  opacity:.55;
-  animation:core 3s infinite alternate;
-}
-
-@keyframes core{
-  from{transform:scale(.75);opacity:.35}
-  to{transform:scale(1.15);opacity:.7}
-}
-
-.stars{
-  position:absolute;
-  inset:0;
-  background-image:
-    radial-gradient(circle,#fff 1px,transparent 1px),
-    radial-gradient(circle,#55baff 1px,transparent 1px);
-  background-size:90px 90px,140px 140px;
-  opacity:.28;
-  animation:stars 12s linear infinite;
-}
-
-@keyframes stars{
-  to{background-position:90px 90px,-140px 140px}
-}
-
-.gojo-symbol{
-  position:relative;
-  width:210px;
-  height:270px;
-  margin-bottom:10px;
-  filter:drop-shadow(0 0 25px #159cff);
-  animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
-  50%{transform:translateY(-12px)}
-}
-
-/* stylized Gojo */
-
-.hair{
-  position:absolute;
-  top:8px;
-  left:35px;
-  width:140px;
-  height:115px;
-  background:#f4fbff;
-  clip-path:polygon(
-    50% 0%,63% 16%,76% 4%,79% 25%,95% 15%,89% 38%,
-    100% 39%,84% 57%,91% 77%,70% 66%,63% 100%,
-    48% 72%,38% 100%,31% 69%,8% 81%,19% 59%,0% 50%,
-    17% 35%,7% 19%,28% 27%,25% 7%,39% 18%
-  );
-}
-
-.face{
-  position:absolute;
-  top:75px;
-  left:58px;
-  width:94px;
-  height:115px;
-  background:linear-gradient(120deg,#fff,#dbeaff);
-  border-radius:48% 48% 45% 45%;
-  box-shadow:inset -8px -10px 20px #a5c8ee;
-}
-
-.blindfold{
-  position:absolute;
-  top:105px;
-  left:48px;
-  width:114px;
-  height:38px;
-  border-radius:20px;
-  background:linear-gradient(90deg,#060a16,#1d263b,#050914);
-  box-shadow:0 0 15px #168cff;
-}
-
-.blindfold::after{
-  content:"";
-  position:absolute;
-  width:28px;
-  height:8px;
-  background:#5ac7ff;
-  border-radius:50%;
-  left:43px;
-  top:15px;
-  filter:blur(4px);
-}
-
-.collar{
-  position:absolute;
-  bottom:4px;
-  left:43px;
-  width:125px;
-  height:75px;
-  background:linear-gradient(135deg,#101827,#02050b);
-  clip-path:polygon(18% 0,82% 0,100% 100%,0 100%);
-}
-
-/* title */
-
-.small-title{
-  position:relative;
-  letter-spacing:7px;
-  font-size:13px;
-  color:#78d4ff;
-  margin-top:3px;
-}
-
-h1{
-  position:relative;
-  font-size:clamp(42px,12vw,76px);
+#enterScreen h1{
+  font-size:clamp(32px,8vw,65px);
   letter-spacing:5px;
-  text-align:center;
-  text-shadow:
-    0 0 10px #fff,
-    0 0 25px #20a8ff,
-    0 0 50px #006eff;
+  text-shadow:0 0 20px #9b7cff;
+  margin-bottom:35px;
 }
 
-.subtitle{
-  position:relative;
-  color:#9ccfff;
-  letter-spacing:5px;
-  font-size:13px;
-  margin-top:5px;
-}
-
-.enter{
-  position:relative;
-  margin-top:32px;
-  width:205px;
-  height:58px;
-  border:1px solid #5dcaff;
-  border-radius:40px;
-  background:rgba(0,100,255,.12);
-  color:white;
-  letter-spacing:4px;
+.enterBtn{
+  border:2px solid #fff;
+  background:transparent;
+  color:#fff;
+  padding:16px 45px;
+  border-radius:50px;
+  font-size:20px;
   font-weight:bold;
-  box-shadow:
-    0 0 15px #008cff,
-    inset 0 0 20px rgba(0,160,255,.2);
   cursor:pointer;
-  overflow:hidden;
+  box-shadow:0 0 20px #795cff;
+  transition:.3s;
 }
 
-.enter::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:linear-gradient(90deg,transparent,#fff,transparent);
-  opacity:.25;
-  animation:sweep 2.5s infinite;
+.enterBtn:hover{
+  transform:scale(1.1);
+  background:#fff;
+  color:#111;
 }
 
-@keyframes sweep{
-  100%{left:100%}
-}
-
-.enter:active{
-  transform:scale(.94);
-}
-
-/* ================= MAIN ================= */
-
+/* MAIN */
 #main{
-  position:fixed;
-  inset:0;
-  z-index:5;
+  height:100vh;
   display:none;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 45%,#123c8d 0%,#06142e 25%,#02040b 65%);
-}
-
-#main.show{
-  display:block;
-  animation:appear 1.2s ease;
-}
-
-@keyframes appear{
-  from{opacity:0;transform:scale(1.08)}
-  to{opacity:1;transform:scale(1)}
-}
-
-.energy{
-  position:absolute;
-  width:500px;
-  height:500px;
-  left:50%;
-  top:43%;
-  transform:translate(-50%,-50%);
-  border-radius:50%;
-  background:radial-gradient(circle,#fff 0%,#4bc5ff 4%,#1676ff 18%,transparent 65%);
-  filter:blur(3px);
-  opacity:.45;
-  animation:energy 4s linear infinite;
-}
-
-@keyframes energy{
-  50%{transform:translate(-50%,-50%) scale(1.18) rotate(180deg)}
-  100%{transform:translate(-50%,-50%) scale(1) rotate(360deg)}
-}
-
-.ring{
-  position:absolute;
-  left:50%;
-  top:43%;
-  border:1px solid rgba(82,199,255,.55);
-  border-radius:50%;
-  transform:translate(-50%,-50%);
-  animation:ring 8s linear infinite;
-}
-
-.r1{width:280px;height:280px}
-.r2{width:390px;height:390px;animation-duration:11s;animation-direction:reverse}
-.r3{width:520px;height:520px;animation-duration:15s}
-.r4{width:700px;height:700px;animation-duration:20s;opacity:.25}
-
-@keyframes ring{
-  to{transform:translate(-50%,-50%) rotate(360deg)}
-}
-
-.main-content{
-  position:relative;
-  z-index:3;
-  width:100%;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
   justify-content:center;
-  padding:20px;
-  text-align:center;
-}
-
-.badge{
-  color:#6bd2ff;
-  letter-spacing:4px;
-  font-size:11px;
-  border:1px solid rgba(90,200,255,.4);
-  padding:7px 13px;
-  border-radius:30px;
-  background:rgba(0,80,180,.15);
-}
-
-.main-gojo{
-  margin-top:8px;
-  transform:scale(.9);
-}
-
-.main-content h2{
-  font-size:clamp(35px,10vw,64px);
-  letter-spacing:4px;
-  text-shadow:0 0 25px #159cff;
-}
-
-.quote{
-  color:#b9dfff;
-  margin-top:6px;
-  font-size:13px;
-  letter-spacing:3px;
-}
-
-.power{
-  margin-top:25px;
-  width:min(320px,90vw);
-  padding:17px;
-  border:1px solid #42bfff;
-  border-radius:14px;
-  color:white;
-  background:linear-gradient(90deg,rgba(0,80,255,.18),rgba(0,180,255,.08));
-  box-shadow:0 0 25px rgba(0,140,255,.3);
-  cursor:pointer;
-  font-weight:bold;
-  letter-spacing:3px;
-  transition:.25s;
-}
-
-.power:active{
-  transform:scale(.94);
-}
-
-.abilities{
-  display:flex;
-  gap:9px;
-  margin-top:18px;
-  width:min(370px,95vw);
-}
-
-.ability{
-  flex:1;
-  padding:12px 4px;
-  border:1px solid rgba(94,200,255,.3);
-  border-radius:12px;
-  background:rgba(0,50,120,.2);
-  color:#b9e6ff;
-  font-size:10px;
-  letter-spacing:1px;
-  cursor:pointer;
-}
-
-.ability:active{
-  background:rgba(40,150,255,.35);
-}
-
-/* ================= DOMAIN ================= */
-
-#domain{
-  position:fixed;
-  inset:0;
-  z-index:50;
-  display:none;
   align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  background:#000;
-}
-
-#domain.active{
-  display:flex;
-  animation:domainIn .7s ease;
-}
-
-@keyframes domainIn{
-  from{opacity:0}
-  to{opacity:1}
-}
-
-.void{
-  position:absolute;
-  width:110vmax;
-  height:110vmax;
-  border-radius:50%;
-  background:
-    repeating-radial-gradient(
-      circle,
-      rgba(100,190,255,.9) 0px,
-      rgba(30,100,255,.45) 2px,
-      transparent 4px,
-      transparent 16px
-    );
-  animation:voidSpin 12s linear infinite;
-  opacity:.8;
-}
-
-@keyframes voidSpin{
-  to{transform:rotate(360deg) scale(1.1)}
-}
-
-.domain-ring{
-  position:absolute;
-  width:65vmin;
-  height:65vmin;
-  border:2px solid #8bdcff;
-  border-radius:50%;
-  box-shadow:
-    0 0 30px #198dff,
-    inset 0 0 40px #198dff;
-  animation:domainRing 2s ease-in-out infinite alternate;
-}
-
-@keyframes domainRing{
-  from{transform:scale(.7) rotate(0)}
-  to{transform:scale(1.1) rotate(180deg)}
-}
-
-.domain-text{
   position:relative;
-  z-index:3;
+  background:
+    radial-gradient(circle at 50% 40%,#30265e 0%,#100d25 38%,#030308 80%);
+}
+
+/* stars */
+.star{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:white;
+  border-radius:50%;
+  animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+  from{opacity:.2;transform:scale(.7)}
+  to{opacity:1;transform:scale(1.5)}
+}
+
+/* CARD */
+.card{
+  position:relative;
+  width:min(90vw,430px);
+  min-height:570px;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:28px;
+  padding:35px 25px;
   text-align:center;
-  text-shadow:
-    0 0 10px #fff,
-    0 0 30px #36aaff,
-    0 0 70px #006eff;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(15px);
+  box-shadow:0 0 60px rgba(126,91,255,.35);
+  animation:cardIn 1s ease forwards;
 }
 
-.domain-text .small{
-  font-size:12px;
-  letter-spacing:8px;
-  color:#9edfff;
-  animation:fadeText 1s ease forwards;
-}
-
-.domain-text h3{
-  margin-top:12px;
-  font-size:clamp(43px,12vw,88px);
-  letter-spacing:5px;
-  line-height:.95;
-  animation:domainTitle 1.5s cubic-bezier(.2,.8,.2,1);
-}
-
-@keyframes domainTitle{
+@keyframes cardIn{
   from{
     opacity:0;
-    transform:scale(2.5);
-    filter:blur(15px);
+    transform:scale(.7) translateY(80px);
   }
   to{
     opacity:1;
-    transform:scale(1);
-    filter:blur(0);
+    transform:scale(1) translateY(0);
   }
 }
 
-.domain-text p{
-  margin-top:18px;
-  color:#ccecff;
-  letter-spacing:4px;
-  font-size:11px;
+/* CARTOON */
+.character{
+  width:190px;
+  height:190px;
+  margin:0 auto 20px;
+  position:relative;
+  animation:characterFloat 2.5s ease-in-out infinite;
 }
 
-.close{
+@keyframes characterFloat{
+  0%,100%{transform:translateY(0) rotate(-2deg)}
+  50%{transform:translateY(-15px) rotate(2deg)}
+}
+
+/* head */
+.head{
   position:absolute;
-  z-index:5;
-  bottom:35px;
-  left:50%;
-  transform:translateX(-50%);
-  border:1px solid #66ccff;
-  color:white;
-  background:rgba(0,50,130,.3);
-  padding:12px 24px;
-  border-radius:30px;
-  letter-spacing:3px;
+  width:125px;
+  height:125px;
+  left:32px;
+  top:15px;
+  border-radius:50%;
+  background:#ffd7b3;
+  border:4px solid #17121f;
+  z-index:3;
 }
 
-/* flash */
+/* hair */
+.hair{
+  position:absolute;
+  width:135px;
+  height:75px;
+  left:27px;
+  top:5px;
+  background:#161122;
+  border-radius:65% 65% 35% 35%;
+  z-index:4;
+}
 
-#flash{
-  position:fixed;
-  inset:0;
-  z-index:100;
-  pointer-events:none;
+.hair:after{
+  content:"";
+  position:absolute;
+  width:45px;
+  height:60px;
+  left:45px;
+  top:25px;
+  background:#161122;
+  clip-path:polygon(50% 0,100% 100%,0 70%);
+}
+
+/* eyes */
+.eye{
+  position:absolute;
+  width:17px;
+  height:23px;
+  background:#161122;
+  border-radius:50%;
+  top:68px;
+  z-index:6;
+}
+
+.eye.left{left:58px}
+.eye.right{right:58px}
+
+.eye:after{
+  content:"";
+  position:absolute;
+  width:6px;
+  height:6px;
   background:white;
-  opacity:0;
+  border-radius:50%;
+  top:4px;
+  left:4px;
 }
 
-.flash{
-  animation:flash .8s ease;
+/* smile */
+.mouth{
+  position:absolute;
+  width:35px;
+  height:17px;
+  border-bottom:4px solid #17121f;
+  border-radius:50%;
+  left:45px;
+  top:102px;
+  z-index:6;
 }
 
-@keyframes flash{
-  0%{opacity:0}
-  15%{opacity:.9}
-  100%{opacity:0}
+/* body */
+.body{
+  position:absolute;
+  width:120px;
+  height:75px;
+  left:35px;
+  top:125px;
+  background:#6655e8;
+  border:4px solid #17121f;
+  border-radius:35px 35px 20px 20px;
+  z-index:2;
+}
+
+/* arms */
+.arm{
+  position:absolute;
+  width:32px;
+  height:65px;
+  background:#ffd7b3;
+  border:4px solid #17121f;
+  border-radius:25px;
+  top:130px;
+  z-index:1;
+}
+
+.arm.left{
+  left:8px;
+  transform:rotate(25deg);
+}
+
+.arm.right{
+  right:8px;
+  transform:rotate(-25deg);
+}
+
+/* TEXT */
+.small{
+  font-size:14px;
+  letter-spacing:4px;
+  opacity:.7;
+  margin-bottom:10px;
+}
+
+.name{
+  font-size:clamp(30px,8vw,45px);
+  font-weight:900;
+  margin-bottom:10px;
+  text-shadow:0 0 15px #a68cff;
+}
+
+.josh{
+  display:inline-block;
+  font-size:42px;
+  font-weight:900;
+  letter-spacing:5px;
+  animation:josh 1.3s ease-in-out infinite;
+  text-shadow:
+    0 0 8px #fff,
+    0 0 20px #9d7cff,
+    0 0 40px #694cff;
+}
+
+@keyframes josh{
+  0%,100%{
+    transform:scale(1) rotate(0);
+  }
+  20%{
+    transform:scale(1.15) rotate(-4deg);
+  }
+  40%{
+    transform:scale(.95) rotate(4deg);
+  }
+  60%{
+    transform:scale(1.12) rotate(-2deg);
+  }
+  80%{
+    transform:scale(1) rotate(0);
+  }
+}
+
+/* particles */
+.particle{
+  position:absolute;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:white;
+  pointer-events:none;
+  animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+  0%{
+    opacity:1;
+    transform:translate(0,0) scale(1);
+  }
+  100%{
+    opacity:0;
+    transform:translate(var(--x),var(--y)) scale(0);
+  }
+}
+
+.footer{
+  margin-top:25px;
+  font-size:12px;
+  opacity:.5;
+  letter-spacing:2px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
-<section id="intro">
-  <div class="stars"></div>
-
-  <div class="gojo-symbol">
-    <div class="hair"></div>
-    <div class="face"></div>
-    <div class="blindfold"></div>
-    <div class="collar"></div>
-  </div>
-
-  <div class="small-title">JUJUTSU SORCERER</div>
-  <h1>SATORU GOJO</h1>
-  <div class="subtitle">THE STRONGEST</div>
-
-  <button class="enter" onclick="enterSite()">
-    TAP TO ENTER
-  </button>
-</section>
-
+<!-- ENTER -->
+<div id="enterScreen">
+  <h1>TAP TO ENTER</h1>
+  <button class="enterBtn" onclick="enter()">ENTER ✦</button>
+</div>
 
 <!-- MAIN -->
-<section id="main">
+<div id="main">
 
-  <div class="energy"></div>
-  <div class="ring r1"></div>
-  <div class="ring r2"></div>
-  <div class="ring r3"></div>
-  <div class="ring r4"></div>
+  <!-- stars -->
+  <div class="star" style="left:10%;top:15%"></div>
+  <div class="star" style="left:22%;top:75%"></div>
+  <div class="star" style="left:80%;top:20%"></div>
+  <div class="star" style="left:90%;top:70%"></div>
+  <div class="star" style="left:65%;top:10%"></div>
+  <div class="star" style="left:35%;top:25%"></div>
 
-  <div class="main-content">
+  <div class="card" onclick="joshEffect(event)">
 
-    <div class="badge">SPECIAL GRADE SORCERER</div>
+    <div class="character">
 
-    <div class="gojo-symbol main-gojo">
       <div class="hair"></div>
-      <div class="face"></div>
-      <div class="blindfold"></div>
-      <div class="collar"></div>
+
+      <div class="head">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="mouth"></div>
+      </div>
+
+      <div class="arm left"></div>
+      <div class="arm right"></div>
+      <div class="body"></div>
+
     </div>
 
-    <h2>GOJO</h2>
-    <div class="quote">"THROUGHOUT HEAVEN AND EARTH..."</div>
+    <div class="small">WELCOME TO MY WORLD</div>
 
-    <button class="power" onclick="openDomain()">
-      ⚡ UNLEASH THE POWER
-    </button>
+    <div class="name">YOUR NAME</div>
 
-    <div class="abilities">
-      <button class="ability" onclick="ability('LIMITLESS')">
-        ∞<br>LIMITLESS
-      </button>
+    <div class="josh">JOSH 🔥</div>
 
-      <button class="ability" onclick="ability('SIX EYES')">
-        👁<br>SIX EYES
-      </button>
-
-      <button class="ability" onclick="openDomain()">
-        ◉<br>DOMAIN
-      </button>
+    <div class="footer">
+      TAP ANYWHERE ON THE CARD
     </div>
 
   </div>
-</section>
 
-
-<!-- DOMAIN -->
-<section id="domain">
-
-  <div class="void"></div>
-  <div class="domain-ring"></div>
-
-  <div class="domain-text">
-    <div class="small">SATORU GOJO</div>
-    <h3>UNLIMITED<br>VOID</h3>
-    <p>DOMAIN EXPANSION</p>
-  </div>
-
-  <button class="close" onclick="closeDomain()">EXIT DOMAIN</button>
-
-</section>
-
-<div id="flash"></div>
-
+</div>
 
 <script>
 
-function enterSite(){
+function enter(){
 
-  const flash=document.getElementById("flash");
-  flash.classList.add("flash");
-
-  setTimeout(()=>{
-    document.getElementById("intro").style.display="none";
-    document.getElementById("main").classList.add("show");
-  },450);
-
-  setTimeout(()=>{
-    flash.classList.remove("flash");
-  },900);
-}
-
-
-function openDomain(){
-
-  const flash=document.getElementById("flash");
-  flash.classList.add("flash");
-
-  setTimeout(()=>{
-    document.getElementById("domain").classList.add("active");
-  },250);
-
-  setTimeout(()=>{
-    flash.classList.remove("flash");
-  },900);
-}
-
-
-function closeDomain(){
-  document.getElementById("domain").classList.remove("active");
-}
-
-
-function ability(name){
+  document.getElementById("enterScreen").style.display="none";
 
   const main=document.getElementById("main");
+  main.style.display="flex";
 
-  if(name==="LIMITLESS"){
-    main.style.background=
-      "radial-gradient(circle at 50% 45%,#063e92,#02040d 65%)";
+  burst(
+    window.innerWidth/2,
+    window.innerHeight/2,
+    35
+  );
+}
+
+function joshEffect(e){
+
+  burst(e.clientX,e.clientY,25);
+
+  const text=document.querySelector(".josh");
+
+  text.animate(
+    [
+      {transform:"scale(1) rotate(0deg)"},
+      {transform:"scale(1.5) rotate(-8deg)"},
+      {transform:"scale(.8) rotate(8deg)"},
+      {transform:"scale(1.2) rotate(-3deg)"},
+      {transform:"scale(1) rotate(0deg)"}
+    ],
+    {
+      duration:700,
+      easing:"cubic-bezier(.2,.8,.2,1)"
+    }
+  );
+}
+
+function burst(x,y,count){
+
+  for(let i=0;i<count;i++){
+
+    const p=document.createElement("div");
+
+    p.className="particle";
+
+    p.style.left=x+"px";
+    p.style.top=y+"px";
+
+    const angle=Math.random()*Math.PI*2;
+    const distance=60+Math.random()*150;
+
+    p.style.setProperty(
+      "--x",
+      Math.cos(angle)*distance+"px"
+    );
+
+    p.style.setProperty(
+      "--y",
+      Math.sin(angle)*distance+"px"
+    );
+
+    document.body.appendChild(p);
+
+    setTimeout(()=>{
+      p.remove();
+    },1000);
   }
-
-  if(name==="SIX EYES"){
-    main.style.background=
-      "radial-gradient(circle at 50% 45%,#164aff,#02040d 65%)";
-  }
-
-  setTimeout(()=>{
-    main.style.background=
-      "radial-gradient(circle at 50% 45%,#123c8d 0%,#06142e 25%,#02040b 65%)";
-  },1500);
 }
 
 </script>
